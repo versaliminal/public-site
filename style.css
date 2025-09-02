@@ -1,0 +1,218 @@
+:root {
+    --vlred: #8F3D3A; 
+    --vlyellow: #CFAE23;
+    --vlpurple: #665C71;
+    --vlgreen: #6e7649;
+    --darkgrey: #333333;
+    --lightgrey: #888888;
+}
+
+body {
+    background-color: var(--darkgrey);
+    padding: 0px;
+    margin: 0px;
+}
+
+.overlay {
+    background-image: url("grain.jpg");
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 150%;
+    height: 150%;
+    opacity: 6%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: grain 0.5s steps(4) infinite;
+    z-index: 1;
+}
+
+.overlay2 {
+    background-image: url("glitch.png");
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 150%;
+    height: 150%;
+    opacity: 1%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: glitch 0.5s steps(10) infinite;
+    animation-direction: alternate;
+    z-index: 1;
+}
+
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0) }
+  25% { transform:translate(-25%, 0%) }
+  50% { transform:translate(-25%, -25%) }
+  75% { transform:translate(0%, -25%) }
+}
+
+@keyframes glitch {
+  0%, 100% { transform:translate(-10%, 0%) }
+  10% { transform:translate(-8%, -5%) }
+  20% { transform:translate(-6%, -8%) }
+  30% { transform:translate(-4%, -2%) }
+  40% { transform:translate(-2%, -6%) }
+  50% { transform:translate(-0%, -1%) }
+  60% { transform:translate(-2%, -0%) }
+  70% { transform:translate(-4%, -3%) }
+  80% { transform:translate(-6%, -8%) }
+  90% { transform:translate(-8%, -1%) }
+}
+
+.header {
+    background-color: var(--vlred);
+    color: var(--vlyellow);
+    font-weight: bold;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 250%;
+    font-family: sans-serif;
+}
+
+.initialsbox {
+    float: right;
+    background-color: var(--vlgreen);
+    color: var(--vlyellow);
+    text-decoration: line-through;
+    font-weight: bold;
+    width: fit-content;
+    padding: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-right: 10px;
+    border: 2px solid var(--vlyellow);
+    font-family: sans-serif;
+    position: relative;
+    z-index: 10;
+}
+
+.initialsbox::before {
+    content: "VL";
+}
+
+.linkbar {
+    background-color: var(--vlpurple);
+    color: var(--vlyellow);
+    font-weight: bold;
+    width: 100%;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 90%;
+    font-family: monospace;
+    border-top: 3px solid var(--vlyellow);
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--vlpurple),
+        var(--vlpurple) 5px,
+        var(--darkgrey) 5px,
+        var(--darkgrey) 6px
+    );
+}
+
+.fakelinkbox {
+    position: relative;
+    background-color: var(--vlyellow);
+    padding: 5px;
+    color: var(--vlred);
+    margin-right: 3px;
+    margin-left: 0px;
+    text-align: center;
+    border: 3px solid var(--vlyellow);
+    z-index: 10;
+}
+
+.linkbox {
+    display: inline-block;
+    position: relative;
+    background-color: var(--vlyellow);
+    padding: 5px;
+    color: var(--vlred);
+    margin-right: 3px;
+    margin-left: 0px;
+    text-align: center;
+    border: 3px solid var(--vlyellow);
+    z-index: 10;
+}
+
+.linkbox:hover {
+    background-color: var(--vlred) !important;
+    color: var(--vlyellow) !important;
+    border: 3px solid var(--vlred);
+    cursor: pointer;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.main-body {
+    flex: 1;
+    flex-basis: 65%;
+    color: var(--lightgrey);
+}
+
+.side-body {
+    flex: 1;
+    flex-basis: 30%;
+    padding: 10px;
+    background-color: var(--darkgrey);
+    background-image: url(dithering.jpg);
+    background-blend-mode: darken;
+}
+
+.content-box-std {
+    position: relative;
+    z-index: 10;
+    padding: 10px;
+    color: white;
+    width: 100;
+    min-height: 40px;
+    border-top: 5px solid var(--vlpurple);
+    margin-bottom: 10px;
+    font-family: "Roboto Slab";
+    border-bottom: 1px dashed var(--lightgrey);
+    background: rgba(51, 51, 51, .2);
+}
+
+.title {
+    color: var(--vlyellow);
+    font-family: "Fira Code", monospace;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: var(--vlred);
+    color: var(--vlyellow);
+    font-weight: bold;
+    width: 100%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    font-size: 30%;
+    margin: 0px;
+    font-family: monospace;
+}
+
+.sg {
+    background-color: var(--vlpurple);
+    color: var(--vlyellow);
+    font-weight: bold;
+    width: fit-content;
+    padding: 0px;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    border: 2px solid var(--vlyellow);
+    font-family: sans-serif;
+    opacity: 20%;
+}
