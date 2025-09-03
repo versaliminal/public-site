@@ -12,7 +12,7 @@
 }
 
 body {
-    background-color: var(--darkgrey);
+    background-image: linear-gradient(to top, var(--vlpurple), 60%, var(--darkgrey));
     padding: 0px;
     margin: 0px;
 }
@@ -119,6 +119,7 @@ body {
         var(--darkgrey) 5px,
         var(--darkgrey) 6px
     );
+    border-bottom: 1px solid var(--vlpurple);
 }
 
 .fakelinkbox {
@@ -297,4 +298,65 @@ b {
 #clean:target ~ .glitch {
     display: none !important;
     animation: none !important;
+}
+
+
+@media only screen and (max-device-width: 480px) {
+
+    .header {
+        font-size: 350%;
+        padding-top: 25px;
+        padding-bottom: 20px;
+    }
+
+    .initialsbox {
+        display: none;
+    }
+
+    .linkbar {
+        font-size: 200%;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 4px solid var(--vlpurple);
+    }
+
+    .fakelinkbox {
+        display: none;
+    }
+
+    .linkbox {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .body {
+        flex-direction: column;
+        flex-direction: column-reverse;
+    }
+
+    .side-body {
+        font-size: 165%;
+    }
+
+    .content-box-std {
+        border-top: 0px;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0px;
+        font-size: 45%;
+        background-color: transparent;
+    }
+
+    .grain {
+        width: 300%;
+        height: 300%;
+    }
+
+    .glitch {
+        width: 300%;
+        height: 300%;
+    }
 }
