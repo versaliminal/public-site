@@ -5,6 +5,10 @@
     --vlgreen: #6e7649;
     --darkgrey: #333333;
     --lightgrey: #888888;
+
+    --crt-red: rgb(218, 49, 49);
+    --crt-green: rgb(112, 159, 115);
+    --crt-blue: rgb(40, 129, 206);
 }
 
 body {
@@ -13,7 +17,7 @@ body {
     margin: 0px;
 }
 
-.overlay {
+.grain {
     background-image: url("grain.jpg");
     position: fixed;
     top: 0px;
@@ -27,7 +31,7 @@ body {
     z-index: 1;
 }
 
-.overlay2 {
+.glitch {
     background-image: url("glitch.png");
     position: fixed;
     top: 0px;
@@ -72,6 +76,7 @@ body {
     text-align: center;
     font-size: 250%;
     font-family: sans-serif;
+    text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5), -1px -1px rgba(0, 255, 255, 0.5);
 }
 
 .initialsbox {
@@ -84,7 +89,7 @@ body {
     padding: 5px;
     padding-left: 12px;
     padding-right: 12px;
-    margin-right: 10px;
+    margin-right: 15px;
     border: 2px solid var(--vlyellow);
     font-family: sans-serif;
     position: relative;
@@ -104,7 +109,7 @@ body {
     padding-top: 4px;
     padding-left: 0px;
     padding-right: 0px;
-    font-size: 90%;
+    font-size: 95%;
     font-family: monospace;
     border-top: 3px solid var(--vlyellow);
     background: repeating-linear-gradient(
@@ -146,6 +151,7 @@ body {
     color: var(--vlyellow) !important;
     border: 3px solid var(--vlred);
     cursor: pointer;
+    transition: all 0.6s;
 }
 
 .body {
@@ -165,6 +171,7 @@ body {
     flex: 1;
     flex-basis: 30%;
     padding: 10px;
+    padding-right: 15px;
     background-color: var(--darkgrey);
     background-image: url(dithering.jpg);
     background-blend-mode: darken;
@@ -181,7 +188,7 @@ body {
     margin-bottom: 10px;
     font-family: "Roboto Slab";
     border-bottom: 1px dashed var(--lightgrey);
-    background: rgba(51, 51, 51, .2);
+    mix-blend-mode: screen;
 }
 
 .title {
@@ -203,20 +210,91 @@ body {
     font-family: monospace;
 }
 
-.sg {
-    background-color: var(--vlpurple);
-    color: var(--vlyellow);
-    font-weight: bold;
-    width: fit-content;
-    padding: 0px;
+.pride {
     position: fixed;
-    bottom: 5px;
-    right: 5px;
+    bottom: 8px;
+    right: 15px;
     border: 2px solid var(--vlyellow);
-    font-family: sans-serif;
-    opacity: 20%;
+    opacity: 50%;
+    z-index: 10;
+}
+
+.trans {
+    position: fixed;
+    bottom: 8px;
+    right: 60px;
+    border: 2px solid var(--vlyellow);
+    opacity: 50%;
+    z-index: 10;
+}
+
+img {
+    display: block;
 }
 
 b {
     font-family: sans-serif;
+}
+
+.crt {
+    flex: 1;
+    flex-basis: 30%;
+    padding: 10px;
+    background-color: rgb(25, 25, 30);
+    position: relative;
+    &:before,
+    &:after {
+        content: "";
+        transform: translateZ(0);
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 11;
+    }
+    &:before {
+        background: repeating-linear-gradient(
+        var(--crt-red) 0px,
+        var(--crt-green) 2px,
+        var(--crt-blue) 4px
+        );
+    }
+    &:after {
+        background: repeating-linear-gradient(
+        90deg,
+        var(--crt-red) 1px,
+        var(--crt-green) 2px,
+        var(--crt-blue) 3px
+    );
+  }
+}
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6) inset;
+  z-index: 2;
+}
+
+#clean {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px; 
+}
+
+#clean:target ~ .grain {
+    display: none !important;
+    animation: none !important;
+}
+
+#clean:target ~ .glitch {
+    display: none !important;
+    animation: none !important;
 }
