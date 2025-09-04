@@ -122,18 +122,6 @@ body {
     border-bottom: 1px solid var(--vlpurple);
 }
 
-.fakelinkbox {
-    position: relative;
-    background-color: var(--vlyellow);
-    padding: 5px;
-    color: var(--vlred);
-    margin-right: 3px;
-    margin-left: 0px;
-    text-align: center;
-    border: 3px solid var(--vlyellow);
-    z-index: 10;
-}
-
 .linkbox {
     display: inline-block;
     position: relative;
@@ -147,7 +135,7 @@ body {
     z-index: 10;
 }
 
-.linkbox:hover {
+:not(.dummy).linkbox:hover {
     background-color: var(--vlred) !important;
     color: var(--vlyellow) !important;
     border: 3px solid var(--vlred);
@@ -321,13 +309,13 @@ b {
         border-bottom: 4px solid var(--vlpurple);
     }
 
-    .fakelinkbox {
-        display: none;
-    }
-
     .linkbox {
         margin-left: 5px;
         margin-right: 5px;
+    }
+
+    .dummy.linkbox {
+        display: none !important;
     }
 
     .body {
