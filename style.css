@@ -5,65 +5,17 @@
     --vlgreen: #6e7649;
     --darkgrey: #333333;
     --lightgrey: #888888;
-
-    --crt-red: rgb(218, 49, 49);
-    --crt-green: rgb(112, 159, 115);
-    --crt-blue: rgb(40, 129, 206);
 }
 
+/*
+-------------------------
+    Structure
+-------------------------
+*/
 body {
     background-image: linear-gradient(to top, var(--vlpurple), 60%, var(--darkgrey));
     padding: 0px;
     margin: 0px;
-}
-
-.grain {
-    background-image: url("grain.jpg");
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 150%;
-    height: 150%;
-    opacity: 6%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: grain 0.5s steps(4) infinite;
-    z-index: 1;
-}
-
-.glitch {
-    background-image: url("glitch.png");
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 150%;
-    height: 150%;
-    opacity: 1%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: glitch 0.5s steps(10) infinite;
-    animation-direction: alternate;
-    z-index: 1;
-}
-
-@keyframes grain {
-  0%, 100% { transform:translate(0, 0) }
-  25% { transform:translate(-25%, 0%) }
-  50% { transform:translate(-25%, -25%) }
-  75% { transform:translate(0%, -25%) }
-}
-
-@keyframes glitch {
-  0%, 100% { transform:translate(-10%, 0%) }
-  10% { transform:translate(-8%, -5%) }
-  20% { transform:translate(-6%, -8%) }
-  30% { transform:translate(-4%, -2%) }
-  40% { transform:translate(-2%, -6%) }
-  50% { transform:translate(-0%, -1%) }
-  60% { transform:translate(-2%, -0%) }
-  70% { transform:translate(-4%, -3%) }
-  80% { transform:translate(-6%, -8%) }
-  90% { transform:translate(-8%, -1%) }
 }
 
 .header {
@@ -253,6 +205,21 @@ b {
     font-family: sans-serif;
 }
 
+.site-icon {
+    position: relative;
+    z-index: 10;
+    height: 2em;
+    float: right;
+    margin-right: 20px;
+    padding-top: 4px;
+
+}
+
+/*
+-------------------------
+   Visual gimmicks
+-------------------------
+*/
 .vignette {
   position: fixed;
   top: 0;
@@ -263,24 +230,137 @@ b {
   z-index: 2;
 }
 
-#clean {
-    display: none;
-    position: absolute;
+.grain {
+    background-image: url("grain.jpg");
+    position: fixed;
     top: 0px;
-    left: 0px; 
+    left: 0px;
+    width: 150%;
+    height: 150%;
+    opacity: 6%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: grain 0.5s steps(4) infinite;
+    z-index: 1;
 }
 
-#clean:target ~ .grain {
-    display: none !important;
-    animation: none !important;
+.glitch {
+    background-image: url("glitch.png");
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 150%;
+    height: 150%;
+    opacity: 1%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: glitch 0.5s steps(10) infinite;
+    animation-direction: alternate;
+    z-index: 1;
 }
 
-#clean:target ~ .glitch {
-    display: none !important;
-    animation: none !important;
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0) }
+  25% { transform:translate(-25%, 0%) }
+  50% { transform:translate(-25%, -25%) }
+  75% { transform:translate(0%, -25%) }
+}
+
+@keyframes glitch {
+  0%, 100% { transform:translate(-10%, 0%) }
+  10% { transform:translate(-8%, -5%) }
+  20% { transform:translate(-6%, -8%) }
+  30% { transform:translate(-4%, -2%) }
+  40% { transform:translate(-2%, -6%) }
+  50% { transform:translate(-0%, -1%) }
+  60% { transform:translate(-2%, -0%) }
+  70% { transform:translate(-4%, -3%) }
+  80% { transform:translate(-6%, -8%) }
+  90% { transform:translate(-8%, -1%) }
+}
+
+.header-text {
+    animation: form 0.6s steps(5);
+    transition-delay: 0.5s;
+}
+
+@keyframes form {
+    0% {
+        filter: brightness(0.9);
+        text-shadow: 0 0 0.2em currentColor, 5px 5px rgba(255, 0, 255, 0.5), -5px -5px rgba(0, 255, 255, 0.5);
+    }
+    25% {
+        filter: brightness(0.9);
+        text-shadow: 0 0 0.2em currentColor, 4px 4px rgba(255, 0, 255, 0.5), -4px -4px rgba(0, 255, 255, 0.5);
+    }
+    50% {
+        filter: brightness(0.90);
+        text-shadow: 0 0 0.2em currentColor, 3px 3px rgba(255, 0, 255, 0.5), -3px -3px rgba(0, 255, 255, 0.5);
+    }
+    75% {
+        filter: brightness(0.95);
+        text-shadow: 0 0 0.2em currentColor, 2px 2px rgba(255, 0, 255, 0.5), -2px -2px rgba(0, 255, 255, 0.5);
+    }
+    100% {
+        filter: brightness(1);
+        text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5), -1px -1px rgba(0, 255, 255, 0.5);
+    }
 }
 
 
+/*
+-------------------------
+Configuration for clean view
+-------------------------
+*/
+.site-icon.clean {
+    display: none;
+    
+}
+
+.site-icon.dirty {
+    transition: all 1s;
+}
+
+.site-icon.dirty:hover {
+    filter: brightness(400%);
+    transition: all 2s;
+}
+
+.clean-img {
+    transform: rotate(180deg);
+}
+
+#clean:target {
+    > .grain {
+        display: none !important;
+        animation: none !important;
+    }
+
+    > .glitch {
+        display: none !important;
+        animation: none !important;
+    }
+
+    > .header > .header-text {
+        text-shadow: none;
+        transition-delay: 0s;
+    }
+
+    > .linkbar > a > .site-icon.clean {
+        display: block;
+    }
+
+    > .linkbar > a > .site-icon.dirty {
+        display: none;
+    }
+}
+
+/*
+-------------------------
+Configuration for vertical view on mobile
+-------------------------
+*/
 @media only screen and (max-device-width: 480px) {
 
     .header {
