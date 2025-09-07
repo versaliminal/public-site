@@ -131,9 +131,10 @@ body {
     flex-basis: 30%;
     padding: 10px;
     padding-right: 15px;
-    background-color: var(--darkgrey);
-    background-image: url(dithering.jpg);
-    background-blend-mode: darken;
+    background-color: #222;
+    background-image: url(rosetta.png);
+    background-blend-mode: soft-light;
+    border-left: 5px double var(--vlpurple);
 }
 
 .content-box-std {
@@ -147,7 +148,7 @@ body {
     margin-bottom: 10px;
     font-family: "Roboto Slab";
     border-bottom: 1px dashed var(--lightgrey);
-    mix-blend-mode: screen;
+    background-color: rgba(40, 40, 40, 0.9);
 }
 
 .main-body > * > .content-box-std {
@@ -315,11 +316,11 @@ Configuration for clean view
     
 }
 
-.site-icon.dirty {
+.site-icon {
     transition: all 1s;
 }
 
-.site-icon.dirty:hover {
+.site-icon:hover {
     filter: brightness(400%);
     transition: all 2s;
 }
