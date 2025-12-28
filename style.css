@@ -2,9 +2,11 @@
     --vlred: #8F3D3A; 
     --vlyellow: #CFAE23;
     --vlpurple: #665C71;
+    --vlpurpledk: #4e4657; /* 78, 70, 87 */
     --vlgreen: #6e7649;
     --darkgrey: #333333;
     --lightgrey: #888888;
+    --textgrey: #CCCCCC;
 }
 
 /*
@@ -13,9 +15,10 @@
 -------------------------
 */
 body {
-    background-image: linear-gradient(to top, var(--vlpurple), 60%, var(--darkgrey));
+    background-image: linear-gradient(to top, var(--vlpurpledk), 60%, var(--darkgrey));
     padding: 0px;
     margin: 0px;
+    min-height: 100vh;
 }
 
 .header {
@@ -29,6 +32,11 @@ body {
     font-size: 250%;
     font-family: sans-serif;
     text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5), -1px -1px rgba(0, 255, 255, 0.5);
+    box-shadow: 0px 0px 15px var(--vlyellow), 2px 2px 15px rgba(255, 0, 255, 0.3), -2px -2px 15px rgba(0, 255, 255, 0.3);
+    border-top: 4px solid var(--vlyellow);
+    border-bottom: 3px solid var(--vlyellow);
+    animation: unsteady-low 10s infinite;
+    transition: 0.5s;
 }
 
 .initialsbox {
@@ -67,9 +75,9 @@ body {
     background: repeating-linear-gradient(
         -45deg,
         var(--vlpurple),
-        var(--vlpurple) 5px,
-        var(--darkgrey) 5px,
-        var(--darkgrey) 6px
+        var(--vlpurple) 3px,
+        var(--vlpurpledk) 4px,
+        var(--vlpurpledk) 5px
     );
     border-bottom: 1px solid var(--vlpurple);
 }
@@ -96,75 +104,71 @@ body {
 }
 
 .body {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.main-body {
-    flex: 1;
-    flex-basis: 65%;
-    color: var(--lightgrey);
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.main-body > .alt-body {
-    padding: 15px;
-    min-height: 400px;
-}
-
-.alt-body {
-    display: none;
-}
-
-#alt:target > * > .default-body {
-    display: none !important;
-}
-
-#alt:target > * > .alt-body {
     display: block;
+    padding: 1rem;
+    background-image: url(noise.png);
+    background-size: cover;
+    min-height: 100vh;
 }
 
-.side-body {
-    flex: 1;
-    flex-basis: 30%;
-    padding: 10px;
-    padding-right: 15px;
-    background-color: #222;
-    background-image: url(rosetta.png);
-    background-blend-mode: soft-light;
-    border-left: 5px double var(--vlpurple);
+.grid-body {
+    /*
+    justify-content: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1rem;
+    */
+    column-count: 4;
+    column-gap: 1rem;
 }
 
-.content-box-std {
+.virt-box {
+    display: inline-block;
+    height: fit-content;
+    margin-bottom: 1rem;
+    vertical-align: top;
+    min-height: 2em;
+    color: white;
+    font-family: "Roboto Slab";
+    border: 1px solid var(--vlyellow);
+    border-top: 2px solid var(--vlyellow);
+    background-color: rgba(30, 30, 30, 0.1);
+    box-shadow: 0px 0px 2px var(--vlyellow), 2px 2px 11px rgba(255, 0, 255, 0.3), 2px -2px 11px rgba(0, 255, 255, 0.3);
+    text-shadow: 0 0 0.2em var(--vlyellow);
+    font-family: "Fira Code", monospace;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.virt-box:hover {
+    box-shadow: 0px 0px 3px var(--vlyellow), 2px 2px 20px rgba(255, 0, 255, 0.4), -2px -2px 20px rgba(0, 255, 255, 0.4);
+    transition: 0.7s;
+}
+
+.virt-box > .heading {
     position: relative;
     z-index: 10;
-    padding: 10px;
-    color: white;
-    width: 100;
-    min-height: 40px;
-    border-top: 5px solid var(--vlpurple);
-    margin-bottom: 10px;
-    font-family: "Roboto Slab";
-    border-bottom: 1px dashed var(--lightgrey);
-    background-color: rgba(40, 40, 40, 0.9);
+    padding: 0.5em;
+    border-bottom: 1px dashed var(--vlyellow);
+    animation: unsteady 6s infinite;
 }
 
-.main-body > * > .content-box-std {
-    border: 1px dashed var(--lightgrey);
-    border-top: 5px solid var(--vlyellow);
-}
-
-.alt-body > .content-box-std {
-    background-color: var(--darkgrey);
-    mix-blend-mode: normal;
-}
-
-.title {
+.virt-box > .heading > a {
     color: var(--vlyellow);
-    font-family: "Fira Code", monospace;
-    font-weight: bold;
+    font-family: "Roboto Slab";
+    text-decoration: none;
+}
+
+.virt-box > .text {
+    position: relative;
+    z-index: 10;
+    padding: 0.5em;
+    font-size: 0.9em;
+}
+
+.virt-box > img {
+    width: 100%;
+    border-radius: 5px;
 }
 
 .footer {
@@ -178,11 +182,14 @@ body {
     font-size: 30%;
     margin: 0px;
     font-family: monospace;
+    border-top: 3px solid var(--vlyellow);
+    box-shadow: 0px 0px 15px var(--vlyellow), 2px 2px 15px rgba(255, 0, 255, 0.2), -2px -2px 15px rgba(0, 255, 255, 0.2);
+    border-bottom: 4px solid var(--vlyellow);
 }
 
 .pride {
     position: fixed;
-    bottom: 8px;
+    bottom: 12px;
     right: 15px;
     border: 2px solid var(--vlyellow);
     opacity: 50%;
@@ -191,7 +198,7 @@ body {
 
 .trans {
     position: fixed;
-    bottom: 8px;
+    bottom: 12px;
     right: 60px;
     border: 2px solid var(--vlyellow);
     opacity: 50%;
@@ -213,7 +220,6 @@ b {
     float: right;
     margin-right: 20px;
     padding-top: 4px;
-
 }
 
 /*
@@ -306,6 +312,33 @@ b {
     }
 }
 
+@keyframes unsteady {
+  0%, 100%{
+    filter: brightness(1);
+  }
+  20%, 60%{
+    filter: brightness(1.2);
+  }
+  40%, 80%{
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes unsteady-low {
+  0%, 100%{
+    filter: brightness(1);
+    text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5), -1px -1px rgba(0, 255, 255, 0.5);
+  }
+  20%, 60%{
+    filter: brightness(0.95);
+    text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.2), -1px -1px rgba(0, 255, 255, 0.2);
+  }
+  40%, 80%{
+    filter: brightness(1.05);
+    text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.7), -1px -1px rgba(0, 255, 255, 0.7);
+  }
+}
+
 /*
 -------------------------
 Configuration for clean view
@@ -359,55 +392,27 @@ Configuration for clean view
 Configuration for vertical view on mobile
 -------------------------
 */
-@media only screen and (max-device-width: 480px) {
 
+/* Masonry on large screens */
+@media only screen and (min-width: 1024px) {
+    .grid-body {
+        column-count: 3;
+    }
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    .grid-body {
+        column-count: 2;
+    }
+}
+
+@media only screen and (max-width: 767px) {
     .header {
-        font-size: 350%;
-        padding-top: 25px;
-        padding-bottom: 20px;
     }
 
-    .initialsbox {
-        display: none;
-    }
-
-    .linkbar {
-        font-size: 200%;
-        text-align: center;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        border-bottom: 4px solid var(--vlpurple);
-    }
-
-    .linkbox {
-        margin-left: 5px;
-        margin-right: 5px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    .dummy.linkbox {
-        display: none !important;
-    }
-
-    .body {
-        flex-direction: column;
-        flex-direction: column-reverse;
-    }
-
-    .side-body {
-        font-size: 155%;
-    }
-
-    .content-box-std {
-        border-top: 0px;
-    }
-
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        font-size: 45%;
-        background-color: transparent;
+    .grid-body {
+        column-count: 1;
     }
 
     .grain {
