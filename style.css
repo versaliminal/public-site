@@ -1,7 +1,7 @@
 :root {
     --vlred: #8F3D3A; 
-    --vlyellow: #CFAE23;
-    --vlpurple: #665C71;
+    --vlyellow: #cfae23;
+    --vlpurple: #665c71;
     --vlpurpledk: #4e4657; /* 78, 70, 87 */
     --vlgreen: #6e7649;
     --darkgrey: #333333;
@@ -42,70 +42,6 @@ body {
     border-radius: 2px;
 }
 
-.initialsbox {
-    float: right;
-    background-color: var(--vlgreen);
-    color: var(--vlyellow);
-    text-decoration: line-through;
-    font-weight: bold;
-    width: fit-content;
-    padding: 5px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-right: 15px;
-    border: 2px solid var(--vlyellow);
-    font-family: sans-serif;
-    position: relative;
-    z-index: 10;
-}
-
-.initialsbox::before {
-    content: "VL";
-}
-
-.linkbar {
-    background-color: var(--vlpurple);
-    color: var(--vlyellow);
-    font-weight: bold;
-    width: 100%;
-    padding-bottom: 4px;
-    padding-top: 4px;
-    padding-left: 0px;
-    padding-right: 0px;
-    font-size: 95%;
-    font-family: monospace;
-    border-top: 3px solid var(--vlyellow);
-    background: repeating-linear-gradient(
-        -45deg,
-        var(--vlpurple),
-        var(--vlpurple) 3px,
-        var(--vlpurpledk) 4px,
-        var(--vlpurpledk) 5px
-    );
-    border-bottom: 1px solid var(--vlpurple);
-}
-
-.linkbox {
-    display: inline-block;
-    position: relative;
-    background-color: var(--vlyellow);
-    padding: 5px;
-    color: var(--vlred);
-    margin-right: 3px;
-    margin-left: 0px;
-    text-align: center;
-    border: 3px solid var(--vlyellow);
-    z-index: 10;
-}
-
-:not(.dummy).linkbox:hover {
-    background-color: var(--vlred) !important;
-    color: var(--vlyellow) !important;
-    border: 3px solid var(--vlred);
-    cursor: pointer;
-    transition: all 0.6s;
-}
-
 .body {
     display: block;
     padding: 1rem;
@@ -132,12 +68,18 @@ body {
     break-inside: avoid;
     margin-bottom: 1rem;
     padding: 1rem;
-    background-color: rgba(30, 30, 30, 0.05);
-    border: 1px solid var(--vlyellow);
+    border: 1px solid var(--vlpurple);
     box-shadow: 0px 0px 2px var(--vlyellow), 2px 2px 11px rgba(255, 0, 255, 0.3), 2px -2px 11px rgba(0, 255, 255, 0.3);
     z-index: 10;
     border-radius: 2px;
+    background-color: rgba(102, 92, 113, 0.05) !important;
 }
+
+.box:hover {
+    box-shadow: 0px 0px 3px var(--vlyellow), 2px 2px 20px rgba(255, 0, 255, 0.4), -2px -2px 20px rgba(0, 255, 255, 0.4);
+    transition: 0.7s;
+}
+
 
 .prompt {
     color: #767676;
@@ -230,57 +172,9 @@ body {
     margin-bottom: 0.25rem;
 }
 
-.virt-box {
-    display: inline-block;
-    height: fit-content;
-    margin-bottom: 1rem;
-    vertical-align: top;
-    min-height: 2em;
-    color: white;
-    font-family: "Roboto Slab";
-    border: 1px solid var(--vlyellow);
-    border-top: 2px solid var(--vlyellow);
-    background-color: rgba(30, 30, 30, 0.1);
-    box-shadow: 0px 0px 2px var(--vlyellow), 2px 2px 11px rgba(255, 0, 255, 0.3), 2px -2px 11px rgba(0, 255, 255, 0.3);
-    text-shadow: 0 0 0.2em var(--vlyellow);
-    font-family: "Fira Code", monospace;
-    border-radius: 5px;
-    transition: 0.5s;
-}
-
-.virt-box:hover {
-    box-shadow: 0px 0px 3px var(--vlyellow), 2px 2px 20px rgba(255, 0, 255, 0.4), -2px -2px 20px rgba(0, 255, 255, 0.4);
-    transition: 0.7s;
-}
-
-.virt-box > .heading {
-    position: relative;
-    z-index: 10;
-    padding: 0.5em;
-    border-bottom: 1px dashed var(--vlyellow);
-    animation: unsteady 6s infinite;
-}
-
-.virt-box > .heading > a {
-    color: var(--vlyellow);
-    font-family: "Roboto Slab";
-    text-decoration: none;
-}
-
-.virt-box > .text {
-    position: relative;
-    z-index: 10;
-    padding: 0.5em;
-    font-size: 0.9em;
-}
-
-.virt-box > img {
-    width: 100%;
-    border-radius: 5px;
-}
 
 .footer {
-    background-color: var(--vlred);
+    background-color: rgba(30, 30, 30, 0.85);
     color: var(--vlyellow);
     font-weight: bold;
     margin-left: auto;
@@ -291,48 +185,25 @@ body {
     font-size: 30%;
     margin: 0px;
     font-family: monospace;
-    box-shadow: 0px 0px 5px var(--vlyellow), 2px 2px 5px rgba(255, 0, 255, 0.2), -2px -2px 5px rgba(0, 255, 255, 0.2);
+    box-shadow: 0px 0px 2px var(--vlyellow), 2px 2px 11px rgba(255, 0, 255, 0.3), 2px -2px 11px rgba(0, 255, 255, 0.3);
     border: 1px solid var(--vlyellow);
 }
 
-.pride {
-    position: fixed;
-    bottom: 12px;
-    right: 15px;
-    border: 2px solid var(--vlyellow);
-    opacity: 50%;
-    z-index: 10;
+.icons {
+    text-align: center;
+    background-color: rgba(102, 92, 113, 0.8) !important;
+    padding: 0.5rem !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0rem !important;
+    width: calc(100% - 1rem) !important;
 }
 
-.trans {
-    position: fixed;
-    bottom: 12px;
-    right: 60px;
-    border: 2px solid var(--vlyellow);
-    opacity: 50%;
-    z-index: 10;
-}
-
-.pfp {
-    position: fixed;
-    bottom: 12px;
-    right: 105px;
-    border: 2px solid var(--vlyellow);
-    opacity: 50%;
-    z-index: 10;
-}
-.pfp img {
-    height: 20px;
-    transition: all 0.5s;
-}
-.pfp:hover {
-    opacity: 100%;
-    transition: all 0.5s;
-}
-.pfp img:hover {
-    opacity: 100%;
-    height: 120px;
-    transition: all 0.5s;
+.icon img {
+    display: inline-block;
+    border: 2px solid var(--vlpurpledk);
+    height: 36px;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 img {
