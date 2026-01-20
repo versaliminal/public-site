@@ -63,7 +63,7 @@ body {
 }
 
 .box {
-    color: var(--lightgrey)
+    color: var(--lightgrey);
     position: relative;
     display: inline-block;
     width: calc(100% - 2rem);
