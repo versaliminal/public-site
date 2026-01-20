@@ -7,6 +7,7 @@
     --darkgrey: #333333;
     --lightgrey: #888888;
     --textgrey: #CCCCCC;
+    --path: #d7d7ff;
 }
 
 /*
@@ -16,7 +17,6 @@
 */
 body {
     background-image: linear-gradient(to top, var(--vlpurpledk), 60%, var(--darkgrey));
-    padding: 0px;
     margin: 0px;
     min-height: 100vh;
 }
@@ -26,17 +26,20 @@ body {
     color: var(--vlyellow);
     font-weight: bold;
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
     padding-top: 20px;
     padding-bottom: 10px;
     text-align: center;
     font-size: 250%;
     font-family: sans-serif;
     text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5), -1px -1px rgba(0, 255, 255, 0.5);
-    box-shadow: 0px 0px 15px var(--vlyellow), 2px 2px 15px rgba(255, 0, 255, 0.3), -2px -2px 15px rgba(0, 255, 255, 0.3);
-    border-top: 4px solid var(--vlyellow);
-    border-bottom: 3px solid var(--vlyellow);
+    border: 1px solid var(--vlyellow);
+    box-shadow: 0px 0px 2px var(--vlyellow), 2px 2px 11px rgba(255, 0, 255, 0.3), 2px -2px 11px rgba(0, 255, 255, 0.3);
     animation: unsteady-low 10s infinite;
     transition: 0.5s;
+    border-radius: 2px;
 }
 
 .initialsbox {
@@ -118,8 +121,113 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1rem;
     */
-    column-count: 4;
+    column-count: 2;
     column-gap: 1rem;
+}
+
+.box {
+    position: relative;
+    display: inline-block;
+    width: calc(100% - 2rem);
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: rgba(30, 30, 30, 0.05);
+    border: 1px solid var(--vlyellow);
+    box-shadow: 0px 0px 2px var(--vlyellow), 2px 2px 11px rgba(255, 0, 255, 0.3), 2px -2px 11px rgba(0, 255, 255, 0.3);
+    z-index: 10;
+    border-radius: 2px;
+}
+
+.prompt {
+    color: #767676;
+    font-family: "Fira Code", monospace;
+    margin-bottom: 1rem;
+    font-size: inherit;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed var(--vlyellow);
+}
+
+.prompt .path {
+    color: var(--path);
+}
+.prompt .branch {
+    color: #d75f5f;
+}
+.prompt .command {
+    color: white;
+}
+
+.prompt .dirty {
+    color: var(--vlyellow);
+}
+
+.output {
+    color: white;
+    font-family: "Fira Code", monospace;
+    margin-bottom: 1rem;
+    font-size: inherit;
+}
+
+.output .name {
+    color: var(--path);
+}
+
+.output a {
+    color: inherit;
+    text-decoration: none;
+    font-family: inherit;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+
+.output a:hover {
+    background-color: var(--vlred);
+    transition: 0.7s;
+}
+
+.output table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.output th {
+    text-align: left;
+    vertical-align: top;
+    padding-right: 2rem;
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+    border-bottom: 1px dashed var(--lightgrey);
+    font-weight: normal;
+}
+
+.output td {
+    text-align: left;
+    vertical-align: top;
+    padding-right: 2rem;
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+}
+
+.output tr:nth-child(even) {
+    background-color: rgba(78, 70, 87, 0.4);
+}
+
+.output b {
+    font-family: inherit;
+    color: var(--path);
+    font-weight: 450;
+}
+
+.i1 {
+    margin-left: 1rem;
+}
+.output a {
+    color: var(--vlyellow)
+}
+
+.output br {
+    margin-bottom: 0.25rem;
 }
 
 .virt-box {
@@ -175,16 +283,16 @@ body {
     background-color: var(--vlred);
     color: var(--vlyellow);
     font-weight: bold;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 3px;
     padding-bottom: 3px;
     text-align: center;
     font-size: 30%;
     margin: 0px;
     font-family: monospace;
-    border-top: 3px solid var(--vlyellow);
-    box-shadow: 0px 0px 15px var(--vlyellow), 2px 2px 15px rgba(255, 0, 255, 0.2), -2px -2px 15px rgba(0, 255, 255, 0.2);
-    border-bottom: 4px solid var(--vlyellow);
+    box-shadow: 0px 0px 5px var(--vlyellow), 2px 2px 5px rgba(255, 0, 255, 0.2), -2px -2px 5px rgba(0, 255, 255, 0.2);
+    border: 1px solid var(--vlyellow);
 }
 
 .pride {
@@ -203,6 +311,28 @@ body {
     border: 2px solid var(--vlyellow);
     opacity: 50%;
     z-index: 10;
+}
+
+.pfp {
+    position: fixed;
+    bottom: 12px;
+    right: 105px;
+    border: 2px solid var(--vlyellow);
+    opacity: 50%;
+    z-index: 10;
+}
+.pfp img {
+    height: 20px;
+    transition: all 0.5s;
+}
+.pfp:hover {
+    opacity: 100%;
+    transition: all 0.5s;
+}
+.pfp img:hover {
+    opacity: 100%;
+    height: 120px;
+    transition: all 0.5s;
 }
 
 img {
@@ -396,14 +526,21 @@ Configuration for vertical view on mobile
 /* Masonry on large screens */
 @media only screen and (min-width: 1024px) {
     .grid-body {
-        column-count: 3;
+        grid-template-columns: 50% 50%;
+        column-count: 2;
     }
 }
 
 /* Masonry on medium-sized screens */
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
     .grid-body {
-        column-count: 2;
+        column-count: 1;
+    }
+    .box {
+        font-size: 130%;
+    }
+    .hideable {
+        display: none;
     }
 }
 
@@ -423,5 +560,11 @@ Configuration for vertical view on mobile
     .glitch {
         width: 300%;
         height: 300%;
+    }
+    .box {
+        font-size: 130%;
+    }
+    .hideable {
+        display: none;
     }
 }

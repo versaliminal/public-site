@@ -10,46 +10,149 @@
         <link rel="icon" href="site.png">
         <title>VERSALIMINAL</title>
     </head>
-    <body id="clean">
-        <div class="header">
-            <span class="header-text">V E R S A L I M I N A L</span>
-        </div>
+    <body>
+       
         <div class="body">
+            <div class="header">
+                <span class="header-text">V E R S A L I M I N A L</span>
+            </div>
+            <div>
+                <div class="box">
+                    <div class="prompt">
+                        [<span class="path">~/dev/projects</span>]
+                        [<span class="branch">main<span class="dirty">*</span></span>]
+                        »
+                        <span class="command">task enum</span>
+                    </div>
+                    <div class="output">
+                        total 8
+                        <br/>
+                        <table>
+                            <thead></thead>
+                                <tr>
+                                    <th>project</th>
+                                    <th>links</th>
+                                    <th>description</th>
+                                    <th class="hideable">technologies</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="name">lab</span></td>
+                                    <td><a href="https://github.com/versaliminal/lab">github</a></td>
+                                    <td><span class="desc">Extensive home lab</span></td>
+                                    <td class="hideable">k8s,proxmox,truenas,pfsense</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="name">demiurge</span></td>
+                                    <td><a href="https://github.com/versaliminal/demiurge">github</a></td>
+                                    <td><span class="desc">Dev exploration project</span></td>
+                                    <td class="hideable">go,helm,openapi,sqlc,atlas</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="name">pub-tools</span></td>
+                                    <td><a href="https://github.com/versaliminal/publishing-tools">github</a></td>
+                                    <td><span class="desc">Tools for publishing TTRG and other content</span></td>
+                                    <td class="hideable">latex,python</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="name">mythic-witches</span></td>
+                                    <td><a href="https://github.com/versaliminal/mythic-witches">github</a></td>
+                                    <td><span class="desc">A module for Mythic Bastionland</span></td>
+                                    <td class="hideable">latex,pub-tools</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="name">28z</span></td>
+                                    <td><a href="https://github.com/versaliminal/28z">github</a></td>
+                                    <td><span class="desc">An experimental RPL type language and VM</span></td>
+                                    <td class="hideable">go</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="name">worsen</span></td>
+                                    <td><a href="https://github.com/versaliminal/worsen">github</a></td>
+                                    <td><span class="desc">A simple tool for making images worse</span></td>
+                                    <td class="hideable">rust</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="name">contested</span></td>
+                                    <td>TBD</td>
+                                    <td><span class="desc">(WIP) Site to encourage contesting uncontested elections</span></td>
+                                    <td class="hideable">web,TBD</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="name">edible-rich</span></td>
+                                    <td><a href="https://github.com/jcadem/The_Edible_Rich">github</a>,<a href="https://ediblerich.com">www</a></td>
+                                    <td><span class="desc">A joke site showing income disparity</span></td>
+                                    <td class="hideable">web</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="name">public-site</span></td>
+                                    <td><a href="https://github.com/versaliminal/public-site">github</a>,<a href="https://versaliminal.org">www</a></td>
+                                    <td><span class="desc">This site</span></td>
+                                    <td class="hideable">web</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <div class="grid-body">
-                <div class="virt-box">
-                    <div class="heading">
-                        (>) Demiurge - <a href="https://github.com/versaliminal/demiurge">Github</a>
+                <div class="box">
+                    <div class="prompt">
+                        [<span class="path">~/</span>]
+                        [<span class="branch">main</span>]
+                        »
+                        <span class="command">yq '.' about.yaml</span>
                     </div>
-                    <div class="text">
-                        A dev exploration project focused on interesting tools, devops processes, and ways to process and store data.
+                    <div class="output">
+                        <b>---</b>
+                        <br/>
+                        <b>author:</b>
+                        <br/>
+                        <b class="i1">name:</b> Quinn Aletheia McCaffrey
+                        <br/>
+                         <b class="i1">pronouns:</b> she/they
+                        <br/>
+                        <b class="i1">location:</b> Austin, TX
+                        <br/>
+                        <b>work:</b>
+                        <br/>
+                        <b class="i1">occupation:</b> Sr. Software Engineer, General Tinkerer
+                        <br/>
+                        <b class="i1">resume:</b> <a href="resume.pdf">resume.pdf</a>
                     </div>
+            </div>
+            <div class="box">
+                <div class="prompt">
+                    [<span class="path">~/misc</span>]
+                    [<span class="branch">none</span>]
+                    »
+                    <span class="command">pandoc -f markdown -t html stuff.md</span>
                 </div>
-                <div class="virt-box">
-                    <div class="heading">
-                        (!) Witches of Bastionland - <a href="">Coming Soon</a>
-                    </div>
-                    <div class="text">
-                        An unofficial module for Mythic Bastionland which provides tweaked rules, 20 witch characters, and 8 new myths to build campaigns with! Currently in development.
-                    </div>
-                </div>
-                <div class="virt-box">
-                    <div class="heading">
-                        (>) 28z - <a href="https://github.com/versaliminal/28z">Github</a>
-                    </div>
-                    <div class="text">
-                        An experimental virtual machine implementing a Reverse Polish Lisp (RPL) type language.
-                    </div>
-                </div>
-                 <div class="virt-box">
-                    <div class="heading">
-                        (>) TTRPG Tools - <a href="https://github.com/versaliminal/ttrpg-tools">Github</a>
-                    </div>
-                    <div class="text">
-                        Tools to enable rich publishing TTRPG content from simple spreadsheets.
-                    </div>
-                </div>
-                <div class="virt-box">
-                    <img src="hp16.jpg">
+                <div class="output">
+<p><em>Misc Things</em></p>
+<ul>
+<li><a href="https://www.strava.com/athletes/114835522">Strava</a></li>
+<li><a href="https://www.printables.com/@redx_1480262/models">Models @
+Printables</a></li>
+</ul>
+<p><em>MtG Decks</em></p>
+<ul>
+<li><a
+href="https://archidekt.com/decks/8492711/very_good_friends_and_roommates">Very
+Good Friends and Roomates</a></li>
+<li><a
+href="https://archidekt.com/decks/17865691/bestor_best_of_all">Bestor,
+Best of All</a></li>
+<li><a
+href="https://archidekt.com/decks/10830730/drained">Drained</a></li>
+<li><a
+href="https://archidekt.com/decks/13819861/must_block_will_block">Must
+Block, Will Block</a></li>
+<li><a href="https://archidekt.com/decks/10997383/slippery_ric">Slippery
+’Ric</a></li>
+</ul>
+
                 </div>
             </div>
         </div>
@@ -71,6 +174,7 @@
         </div>
         <div class="pride"><img src="pride.svg" height=20px/></div>
         <div class="trans"><img src="trans.svg" height=20px/></div>
+        <div class="pfp"><img src="pfp.jpg"/></div>
         <div class="grain"></div>
         <div class="glitch"></div>
         <div class="vignette"></div>
