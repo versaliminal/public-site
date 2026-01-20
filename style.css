@@ -536,9 +536,6 @@ Configuration for vertical view on mobile
     .grid-body {
         column-count: 1;
     }
-    .box {
-        font-size: 130%;
-    }
     .hideable {
         display: none;
     }
@@ -560,9 +557,6 @@ Configuration for vertical view on mobile
     .glitch {
         width: 300%;
         height: 300%;
-    }
-    .box {
-        font-size: 130%;
     }
     .hideable {
         display: none;
