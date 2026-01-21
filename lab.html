@@ -20,26 +20,29 @@
                     <div class="output">
                         <a href="index.html"><- main</a>
                          <div class="diagram">
-                      ┌──────────────┐                        
-                      ┼  druid       ┼────►<a href="https://login.tailscale.com/admin/machines">tailscale admin</a>
+                        ext network
+                             │
+                      ┌──────┴───────┐                        
+                      │    druid     │──── <a href="https://login.tailscale.com/admin/machines">tailscale</a>
                       │¨¨¨¨¨¨¨¨¨¨¨¨¨¨│
-                      │  <a href="https://192.168.5.1">pfsense ui</a>  │                     
+                      │   <a href="https://192.168.5.1">pfsense</a>    │                     
                       └──────┬───────┘        
 proxmox cluster              │                            
 ┌────────────────────────────┴────────────────────────────┐
 │  ┌─────────────┐     ┌────────────┐     ┌────────────┐  │
-│  ┼  Wizard     ┼     ┼ sorcerer   ┼     ┼ warlock    ┼  │
+│  │    wizard   │     │  sorcerer  │     │  warlock   │  │
 │  │¨¨¨¨¨¨¨¨¨¨¨¨¨│     │¨¨¨¨¨¨¨¨¨¨¨¨│     │¨¨¨¨¨¨¨¨¨¨¨¨│  │
-│  │  <a href="https://wizard.versaliminal.org:8006/">proxmox ui</a> │     │ <a href="https://sorcerer.versaliminal.org:8006/">proxmox ui</a> │     │ <a href="https://warlock.versaliminal.org:8006/ ">proxmox ui</a> │  │
-│  │             │     │ <a href="https://nas.versaliminal.org">truenas ui</a> │     │            │  │
+│  │   <a href="https://wizard.versaliminal.org:8006/">proxmox</a>   │     │   <a href="https://sorcerer.versaliminal.org:8006/">proxmox</a>  │     │   <a href="https://warlock.versaliminal.org:8006/ ">proxmox</a>  │  │
+│  │   fedora    │     │   <a href="https://nas.versaliminal.org">truenas</a>  │     │            │  │
+│  │             │     │    haos    │     │            │  │
 │  │             │     │            │     │            │  │
-│  │             │     │            │     │            │  │
+│  │  talos cp   │     │ talos wrk1 │     │ talos wrk2 │  │
 │  └─────────────┘     └────────────┘     └────────────┘  │
 └─────────────────────────────────────────────────────────┘
 
-hosted services
+talos k8s cluster
 ┌─────────────────────────────────────────────────────────┐
-  <a href="https://pb.versaliminal.org">privatebin ui</a>
+         <a href="https://pb.versaliminal.org">privatebin</a> * traefik * kafka * postgresql
 └─────────────────────────────────────────────────────────┘
                         </div>
                     </div>
