@@ -1,0 +1,175 @@
+:root {
+    --vlred: #8f3d3a; 
+    --lightred: #7a4d4c;
+    --vlyellow: #cfae23;
+    --vlpurple: #665c71;
+    --vlpurpledk: #4e4657; /* 78, 70, 87 */
+    --vlgreen: #6e7649;
+    --darkgrey: #333333;
+    --midgrey: #634c4c;
+    --lightgrey: #888888;
+    --textgrey: #CCCCCC;
+    --lightestgrey: #EEEEEE;
+    --path: #d7d7ff;
+}
+
+/*
+-------------------------
+    Structure
+-------------------------
+*/
+body {
+    background: white;
+    margin: 0px;
+    min-height: 100vh;
+}
+
+.body {
+    display: block;
+    padding: 1rem;
+    padding-right: 1.5rem;
+    background-color: var(--darkgrey);
+}
+
+.grid-body {
+    display: grid;
+    grid-auto-flow: row;
+    column-count: 2;
+    column-gap: 1rem;
+    grid-template-columns: max-content auto;
+}
+
+.cover-box {
+    display: grid;
+    width: fit-content;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+}
+
+.cover-box img {
+    height: calc(100vh - 2rem);
+}
+
+.content-box {
+    display: grid;
+    padding: 0.5rem;
+    padding-bottom: 0rem;
+    border-radius: 2px;
+    width: calc(100% - 1rem);
+    margin-bottom: 1rem;
+    background-color: var(--lightred);
+}
+
+.content {
+    margin-bottom: 0.5rem;
+    border: 7px solid white;
+    border-radius: 2px;
+    padding: 1rem;
+    background-color: var(--midgrey);
+    color: white;
+    font-family: sans-serif;
+}
+
+.heading {
+    background-image: url(witch-bg.jpg);
+    text-align: center;
+    color: white;
+    height: fit-content;
+    border: 7px solid white;
+}
+
+.title {
+    font-family: "UnifrakturMaguntia";
+    color: white;
+    font-weight: bold;
+    font-size: 700%;
+}
+
+.subtitle {
+    font-family: sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+h1 {
+    font-size: 150%;
+}
+
+a {
+    color: var(--vlyellow);
+    text-decoration: none;
+}
+
+.header {
+    font-family: "UnifrakturMaguntia";
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 250%;
+    padding: 1rem;
+    padding-bottom: 0.75rem;
+    transition: 0.5s;
+    z-index: 0;
+    background-image: url(witch-bg.jpg);
+}
+
+.footer {
+    background-color: rgba(102, 92, 113, 0.75) !important;
+    color: var(--lightgrey);
+    font-weight: bold;
+    text-align: center;
+    font-size: 3pt;
+    text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5), -1px -1px rgba(0, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    width: calc(100% - 1rem);
+}
+
+/*
+-------------------------
+Configuration for vertical view on mobile
+-------------------------
+*/
+
+/* Masonry on large screens */
+@media only screen and (min-width: 1024px) {
+    .grid-body {
+        
+        column-count: 2;
+    }
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    .grid-body {
+        column-count: 1;
+        grid-template-columns: auto;
+    }
+    .hideable {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .header {
+    }
+
+    .grid-body {
+        column-count: 1;
+        grid-template-columns: auto;
+    }
+
+    .grain {
+        width: 300%;
+        height: 300%;
+    }
+
+    .glitch {
+        width: 300%;
+        height: 300%;
+    }
+    .hideable {
+        display: none;
+    }
+}
