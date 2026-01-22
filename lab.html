@@ -21,33 +21,33 @@
                         <a href="index.html"><- main</a>
                          <div class="diagram">
                         ext network
-                             │ 
-                         .38 │ 192.168.1.0/24
-                      ┌──────┴───────┐                        
-                      │    druid     │
-                      │¨¨¨¨¨¨¨¨¨¨¨¨¨¨│
-                      │   <a href="https://192.168.5.1">pfsense</a>  ╔═┽╼──<a href="https://login.tailscale.com/admin/machines">tailscale</a>
+                             ┊ 
+                         .38 ┊ 192.168.1.0/24
+  ┌─┄┄┄─┐             ┌──────┴───────┐                        
+  ┊ lab ┊             │    druid     │
+  └─┄┄┄─┘             │┄┄┄┄┄┄┄┄┄┄┄┄┄┄│
+                      │   <a href="https://192.168.5.1">pfsense</a>  ┌╼┽┄┄┄<a href="https://login.tailscale.com/admin/machines">tailscale</a>
                       └──────┬─────╀─┘        
-                          .1 │ 192.168.5.0/24                         
-proxmox cluster              │                            
-┌────────────────────────────┴────────────────────────────┐
-│  ┌─────────────┐     ┌────────────┐     ┌────────────┐  │
-│  │    wizard   │     │  sorcerer  │     │  warlock   │  │
-│  │¨¨¨¨¨¨¨¨¨¨¨¨¨│     │¨¨¨¨¨¨¨¨¨¨¨¨│     │¨¨¨¨¨¨¨¨¨¨¨¨│  │
-│  │   <a href="https://wizard.versaliminal.org:8006/">proxmox</a>   │     │   <a href="https://sorcerer.versaliminal.org:8006/">proxmox</a>  │     │   <a href="https://warlock.versaliminal.org:8006/ ">proxmox</a>  │  │
-│  │   fedora    │     │   <a href="https://nas.versaliminal.org">truenas</a>  │     │            │  │
-│  │             │     │    haos    │     │            │  │
-│  │             │     │            │     │            │  │
-│  │  talos cp   │     │ talos wrk1 │     │ talos wrk2 │  │
-│  │   (.220)    │     │   (.221)   │     │   (.222)   │  │
-│  └─────────────┘     └────────────┘     └────────────┘  │
-│       .158                .159               .153       │
-└─────────────────────────────────────────────────────────┘
+                          .1 ┊ 192.168.5.0/24                         
+proxmox cluster              ┊                            
+┌────────────────────────────┴─────────────────────────────────┐
+│  ┌─────────────┐     ┌────────────┐          ┌────────────┐  │
+│  │    wizard   │     │  warlock   │          │  sorcerer  │  │
+│  │┄┄┄┄┄┄┄┄┄┄┄┄┄│     │┄┄┄┄┄┄┄┄┄┄┄┄│          │┄┄┄┄┄┄┄┄┄┄┄┄│  │
+│  │   <a href="https://wizard.versaliminal.org:8006/">proxmox</a>   │     │   <a href="https://sorcerer.versaliminal.org:8006/">proxmox</a>  │          │   <a href="https://warlock.versaliminal.org:8006/ ">proxmox</a>  │  │
+│  │   fedora    │     │   <a href="https://nas.versaliminal.org">truenas</a>  │          │            │  │
+│  │             │     │    haos    ├┄┄┄┄┐     │            │  │
+│  │             │     │            │ ┌──┴──┐  │            │  │
+│  │  talos cp   │     │ talos wrk1 │ │ SG1 │  │ talos wrk2 │  │
+│  │   (.220)    │     │   (.222)   │ │10TB │  │   (.221)   │  │
+│  └─────────────┘     └────────────┘ └─────┘  └────────────┘  │
+│       .158                .153                    .159       │
+└──────────────────────────────────────────────────────────────┘
 
 talos k8s cluster                             (ext = .220)
-┌─────────────────────────────────────────────────────────┐
-         <a href="https://pb.versaliminal.org">privatebin</a> * traefik * kafka * postgresql
-└─────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+      <a href="https://pb.versaliminal.org">privatebin</a> * traefik * <s>kube-vip</s> * kafka * postgresql
+└──────────────────────────────────────────────────────────────┘
                         </div>
                     </div>
                 </div>
