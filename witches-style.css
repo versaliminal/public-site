@@ -19,16 +19,16 @@
 -------------------------
 */
 body {
-    background: white;
     margin: 0px;
     min-height: 100vh;
+    background-color: #222222;
+    background-image: url(witch-bg-dark.jpg);
 }
 
 .body {
     display: block;
     padding: 1rem;
     padding-right: 1.5rem;
-    background-color: var(--darkgrey);
 }
 
 .grid-body {
@@ -44,10 +44,15 @@ body {
     width: fit-content;
     margin-bottom: 1rem;
     border-radius: 2px;
+    border: 6px solid var(--darkgrey);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cover-box img {
-    height: calc(100vh - 2rem);
+    max-height: calc(100vh - 3rem);
+    filter: brightness(0.9)
+    
 }
 
 .content-box {
@@ -55,22 +60,24 @@ body {
     padding: 0.5rem;
     padding-bottom: 0rem;
     border-radius: 2px;
-    width: calc(100% - 1rem);
+    width: calc(100% - 1.5rem);
     margin-bottom: 1rem;
     background-color: var(--lightred);
     background: url(poesy.jpg);
     background-size: contain;
+    border: 8px solid white;
+    background-clip: border-box;
+    border: 6px solid var(--darkgrey);
 }
 
 .content {
     margin-bottom: 0.5rem;
-    border: 4px solid white;
+    border: 2px solid var(--darkgrey);
     border-radius: 2px;
     padding: 1rem;
-    background-color: var(--midgrey);
-    background: url(witch-bg-dark.jpg);
-    color: white;
+    color: var(--lightestgrey);
     font-family: sans-serif;
+    background-color: var(--darkgrey);
 }
 
 .heading {
@@ -78,7 +85,7 @@ body {
     text-align: center;
     color: white;
     height: fit-content;
-    border: 4px solid white;
+    filter: brightness(0.9);
 }
 
 .title {
@@ -118,7 +125,7 @@ a {
 }
 
 .footer {
-    background-color: rgba(102, 92, 113, 0.75) !important;
+    background-color: rgba(102, 92, 113, 1) !important;
     color: var(--lightgrey);
     font-weight: bold;
     text-align: center;
@@ -126,7 +133,8 @@ a {
     text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5), -1px -1px rgba(0, 255, 255, 0.5);
     margin-bottom: 0.5rem;
     padding: 0.5rem;
-    width: calc(100% - 1rem);
+    width: calc(100% - 1.5rem);
+    border: 4px solid var(--path);
 }
 
 /*
@@ -155,7 +163,9 @@ Configuration for vertical view on mobile
 }
 
 @media only screen and (max-width: 767px) {
-    .header {
+    .cover-box img {
+        max-width: calc(100vw - 1rem);
+        max-height: 150vh;
     }
 
     .grid-body {
