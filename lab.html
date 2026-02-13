@@ -36,11 +36,11 @@ proxmox cluster              ┊
 │  ┌────────────┐     ┌────────────┐         ┌────────────┐  │
 │  │   wizard   │     │   warlock  │         │  sorcerer  │  │
 │  │┄┄┄┄┄┄┄┄┄┄┄┄│     │┄┄┄┄┄┄┄┄┄┄┄┄│         │┄┄┄┄┄┄┄┄┄┄┄┄│  │
-│  │22c 64GB 1TB│     │16c 64GB 1TB│         │20c 48Gb 1TB│  │
+│  │22t 64GB 1TB│     │16t 64GB 1TB│         │20t 48Gb 1TB│  │
 │  │┄┄┄┄┄┄┄┄┄┄┄┄│     │┄┄┄┄┄┄┄┄┄┄┄┄│         │┄┄┄┄┄┄┄┄┄┄┄┄│  │
 │  │   <a href="https://wizard.versaliminal.org:8006/">proxmox</a>  │     │   <a href="https://sorcerer.versaliminal.org:8006/">proxmox</a>  │         │   <a href="https://warlock.versaliminal.org:8006/ ">proxmox</a>  │  │
-│  │   fedora   │     │   <a href="https://nas.versaliminal.org">truenas</a>  │         │            │  │
-│  │            │     │    haos    ├┄┄┄┄┐    │            │  │
+│  │            │     │   <a href="https://nas.versaliminal.org">truenas</a>  │         │            │  │
+│  │            │     │            ├┄┄┄┄┐    │            │  │
 │  │            │     │            │ ┌──┴─┐  │            │  │
 │  │  talos cp  │     │ talos wrk1 │ │SG1 │  │ talos wrk2 │  │
 │  │   (.220)   │     │   (.222)   │ │10TB│  │   (.221)   │  │
@@ -48,10 +48,25 @@ proxmox cluster              ┊
 │       .158               .153                   .159       │
 └────────────────────────────────────────────────────────────┘
 
+vms
+┌────────────────────────────────────────────────────────────┐
+    <a href="https://fedora:9090">fedora</a> * <a href=http://homeassistant.local:8123>haos</a> * <a href="https://kasm.versaliminal.org">kasm</a>
+└────────────────────────────────────────────────────────────┘
+
+LXC
+┌────────────────────────────────────────────────────────────┐
+    <a href="https://hole.versaliminal.org/admin/login">pihole</a> * tailscale-exit
+└────────────────────────────────────────────────────────────┘
+
 talos k8s cluster                              (lb-ip = .220)
 ┌────────────────────────────────────────────────────────────┐
-          <a href="https://pb.versaliminal.org">privatebin</a> * <a href="https://hl.versaliminal.org">headlamp</a> * traefik * <s>kube-vip</s>
-                       kafka * postgresql
+    <a href="https://pb.versaliminal.org">privatebin</a> * <a href="https://hl.versaliminal.org">headlamp</a> * traefik * <s>kube-vip</s>
+    kafka * postgresql
+└────────────────────────────────────────────────────────────┘
+
+truenas containers
+┌────────────────────────────────────────────────────────────┐
+    <a href="https://nas.versaliminal.org:9002">minio</a> * <a href="https://nas.versaliminal.org:30044">file-browser</a>
 └────────────────────────────────────────────────────────────┘
                         </div>
                     </div>
